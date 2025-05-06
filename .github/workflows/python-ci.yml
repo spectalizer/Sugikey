@@ -20,10 +20,9 @@ jobs:
           python --version
           pip install poetry
           poetry install
-          source $(poetry env info --path)/bin/activate
       - name: Run pylint
         run: |
-          pylint --fail-under=8 --good-names=ax sugikey
+          poetry run pylint --fail-under=8 --good-names=ax sugikey
 
   testing:
     runs-on: ubuntu-latest
@@ -39,9 +38,8 @@ jobs:
           python --version
           pip install poetry
           poetry install
-          source $(poetry env info --path)/bin/activate
       - name: Run pytest
         run: |
-          pytest
+          poetry run pytest
 
   
