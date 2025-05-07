@@ -20,7 +20,7 @@ The simplest way to use Sugikey is to install the [pypi package](https://pypi.or
 
 You can also use the Python code from the repository, provided you have installed the required packages. We use [Poetry](https://python-poetry.org/) for dependency management.
 
-You will need Python >= 3.9, as well as [NetworkX](https://networkx.org/), [pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/) and [PuLP](https://coin-or.github.io/pulp/) for layout methods using mathematical optimization.
+You will need Python >= 3.10, as well as [NetworkX](https://networkx.org/), [pandas](https://pandas.pydata.org/), [Matplotlib](https://matplotlib.org/) and [PuLP](https://coin-or.github.io/pulp/) for layout methods using mathematical optimization.
 The dependencies are managed with [Poetry](https://python-poetry.org/), which you can use to install the package (see _poetry.lock_ and _pyproject.toml_).
 
 ## Usage
