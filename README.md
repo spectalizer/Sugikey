@@ -11,6 +11,7 @@ Some key facts:
 * Produces visual output with [Matplotlib](https://matplotlib.org/).
 * Limitation: the created diagrams are not interactive, i.e. the arrows cannot be moved. Interactive Sankey diagrams can be created with a variety of other tools, including [d3-Sankey](https://github.com/d3/d3-sankey).
 
+Have a look at the [documentation](https://spectalizer.github.io/Sugikey/) for more information.
 
 ## Visuals
 ![image info](docs/imgs/balanced_with_cross_edge.svg)
@@ -43,7 +44,7 @@ dig = examples.balanced_tree_with_cross_edge()
 sankey.sankey_from_dig(dig)
 ```
 
-Have a look at the [documentation](https://gitabab.gitlab.io/sugikey/) for more information.
+Have a look at the [documentation](https://spectalizer.github.io/Sugikey/) for more information.
 
 ## More on Sankey diagrams
 
