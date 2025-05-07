@@ -1,0 +1,34 @@
+site_name: Sugikey
+site_description: The documentation for Sugikey, a Python package for drawing Sankey diagrams
+
+repo_url: https://github.com/spectalizer/Sugikey
+
+theme:
+    name: material
+
+    palette:
+        - scheme: default
+          primary: white
+          accent: amber
+          toggle:
+             icon: material/weather-night
+             name: Switch to dark mode
+        - scheme: slate
+          primary: black
+          accent: amber
+          toggle:
+             icon: material/weather-sunny
+             name: Switch to light mode
+
+    icon:
+        logo: "material/graph"  # logo in top left
+
+nav:
+    - 'index.md'
+
+extra_css:
+    - static/custom_css.css
+
+markdown_extensions:
+    - pymdownx.superfences  # syntax highlighting
+
