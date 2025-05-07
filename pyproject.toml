@@ -1,12 +1,15 @@
-[tool.poetry]
-name = "sugikey"
-version = "0.4.0"
-description = "Drawing Sankey diagrams in Python"
-authors = ["Spectalizer <spectalizer@protonmail.com>"]
-readme = "README.md"
-
 [project]
+name = "sugikey"
+description = "Drawing Sankey diagrams in Python"
+authors = [
+    { name = "Spectalizer", email = "spectalizer@protonmail.com" },
+]
+readme = "README.md"
 urls = {repository = "https://github.com/spectalizer/Sugikey/" }
+
+[tool.poetry]
+version = "0.0.0"
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -25,7 +28,7 @@ jupyterlab = "^3.6.3"
 black = "^23.3.0"
 isort = "^5.12.0"
 mypy = "^1.1.1"
-python-semantic-release = "^7.33.2"
+python-semantic-release = "^9.21.1"
 mkdocs-material = "^9.6.12"
 
 [build-system]
@@ -33,7 +36,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.semantic_release]
-version_toml = "pyproject.toml:tool.poetry.version"
+version_toml = ["pyproject.toml:tool.poetry.version"]
 branch = "main"
 upload_to_repository = true
 hvcs = "gitlab"
