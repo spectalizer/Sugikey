@@ -1,6 +1,22 @@
 # CHANGELOG
 
 
+## v0.0.1 (2025-05-26)
+
+### Bug Fixes
+
+- Remove unused dependency
+  ([`e769950`](https://github.com/spectalizer/Sugikey/commit/e769950860c1dd1e371ee9280298bda5da2625bf))
+
+### Chores
+
+- Twine dev dependency
+  ([`5edb590`](https://github.com/spectalizer/Sugikey/commit/5edb5908b36163199703404fa2a23be86c4bdbd2))
+
+- Updated poetry and semantic-release
+  ([`54c9f27`](https://github.com/spectalizer/Sugikey/commit/54c9f27fdebc5a7e4ba54f4ad25ae5bfa16b058e))
+
+
 ## v0.0.0 (2025-05-07)
 
 ### Documentation
