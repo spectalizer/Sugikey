@@ -23,13 +23,13 @@ bokeh = "^3.7.0"
 [tool.poetry.group.dev.dependencies]
 pylint = "^2.17.1"
 pytest = "^7.2.2"
-jupyterlab = "^3.6.3"
 black = "^23.3.0"
 isort = "^5.12.0"
 mypy = "^1.1.1"
 python-semantic-release = "^9.21.1"
 mkdocs-material = "^9.6.12"
 twine = "^6.1.0"
+ipykernel = "^7.1.0"
 
 [build-system]
 requires = ["poetry-core"]
