@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.0.3 (2026-01-12)
+
+### Bug Fixes
+
+- Dev dependency on ipykernel not jupyterlab
+  ([`a851f6c`](https://github.com/spectalizer/Sugikey/commit/a851f6c8b8dd34eb97b77da75e48ba75bd14d46d))
+
+
 ## v0.0.2 (2026-01-12)
 
 ### Bug Fixes
