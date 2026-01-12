@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.0 (2026-01-12)
+
+### Features
+
+- Update readme
+  ([`63191ac`](https://github.com/spectalizer/Sugikey/commit/63191ac9f38da68ed898f260e22484271061a6ab))
+
+
 ## v0.4.0 (2026-01-12)
 
 ### Features
