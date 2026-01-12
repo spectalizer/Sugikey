@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.4.0 (2026-01-12)
+
+### Features
+
+- Update mkdocs
+  ([`f71a124`](https://github.com/spectalizer/Sugikey/commit/f71a124cd1598da4d79f2b3a1bbcd367eb8febf4))
+
+
 ## v0.3.0 (2026-01-12)
 
 ### Features
