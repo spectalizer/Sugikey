@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.3.0 (2026-01-12)
+
+### Features
+
+- Updated pylint and isort
+  ([`5022f7e`](https://github.com/spectalizer/Sugikey/commit/5022f7edbb1a0a45bedc3775652ecc3cd4080778))
+
+
 ## v0.2.0 (2026-01-12)
 
 ### Features
