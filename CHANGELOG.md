@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.0.2 (2026-01-12)
+
+### Bug Fixes
+
+- Update dependencies
+  ([`3205040`](https://github.com/spectalizer/Sugikey/commit/320504010e63907dfa1ab83e4a954a58535e46f5))
+
+
 ## v0.0.1 (2025-05-26)
 
 ### Bug Fixes
