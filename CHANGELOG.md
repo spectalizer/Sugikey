@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.0 (2026-01-12)
+
+### Features
+
+- Updated mypy
+  ([`775e8a9`](https://github.com/spectalizer/Sugikey/commit/775e8a9cc78085f17424d4ee76f434c67402039f))
+
+
 ## v0.1.0 (2026-01-12)
 
 ### Features
