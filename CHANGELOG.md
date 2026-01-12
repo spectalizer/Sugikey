@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.0.4 (2026-01-12)
+
+### Bug Fixes
+
+- Latest black version
+  ([`7bfca2b`](https://github.com/spectalizer/Sugikey/commit/7bfca2b819d60bec31047bbb5ea0aedc4cbbcee4))
+
+
 ## v0.0.3 (2026-01-12)
 
 ### Bug Fixes
