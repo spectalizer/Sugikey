@@ -2,6 +2,7 @@
 
 
 ## Description
+
 This package aims at providing a reasonably simple and flexible way to draw Sankey diagrams and related flow diagrams in Python.
 Sankey diagrams are flow diagrams composed of arrows of width proportional to the flow of e.g. energy or mass. We use the Sugiyama method to derive [layered graph layouts](https://en.wikipedia.org/wiki/Layered_graph_drawing), hence the portmanteau _Sugi(yama)(San)key_.
 
@@ -17,6 +18,7 @@ Have a look at the [documentation](https://spectalizer.github.io/Sugikey/) for m
 ![image info](docs/imgs/balanced_with_cross_edge.svg)
 
 ## Installation
+
 The simplest way to use Sugikey is to install the [pypi package](https://pypi.org/project/sugikey/): `pip install sugikey`.
 
 You can also use the Python code from the repository, provided you have installed the required packages. We use [Poetry](https://python-poetry.org/) for dependency management.
@@ -25,6 +27,7 @@ You will need Python >= 3.10, as well as [NetworkX](https://networkx.org/), [pan
 The dependencies are managed with [Poetry](https://python-poetry.org/), which you can use to install the package (see _poetry.lock_ and _pyproject.toml_).
 
 ## Usage
+
 The simplest way to use the package are the high-level functions _sankey_from_dig_ and _sankey_from_df_, which take as input a networkx directed graph and a pandas dataframe, respectively.
 
 ```python
@@ -58,9 +61,10 @@ Write an issue if there is an issue.
 
 
 ## Authors and acknowledgment
+
 Zlatan B.
 
 
 ## Project status
+
 This is a personal project without any guarantee.
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
