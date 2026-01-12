@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.0 (2026-01-12)
+
+### Features
+
+- Updated pytest
+  ([`ba80dff`](https://github.com/spectalizer/Sugikey/commit/ba80dff9a7b5fd87ad91fc9f132f7e8509bf0df8))
+
+
 ## v0.0.4 (2026-01-12)
 
 ### Bug Fixes
