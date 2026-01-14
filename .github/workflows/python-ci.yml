@@ -38,8 +38,15 @@ jobs:
           python --version
           pip install poetry
           poetry install
-      - name: Run pytest
+      - name: Run pytest with coverage
         run: |
-          poetry run pytest
+          poetry run coverage run -m pytest
+          poetry run coverage report -m
+      - name: Upload coverage report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: .coverage
+        if: always()
 
   
