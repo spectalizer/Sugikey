@@ -30,6 +30,7 @@ python-semantic-release = "^9.21.1"
 mkdocs-material = "^9.7.1"
 twine = "^6.1.0"
 ipykernel = "^7.1.0"
+coverage = "^7.13.1"
 
 [build-system]
 requires = ["poetry-core"]
