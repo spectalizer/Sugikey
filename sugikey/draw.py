@@ -440,7 +440,8 @@ def backward_link_curve(
     """
     Get geometry of backward link (as arises in the case of cycles)
 
-    One half-ellipse to turn backwards, a spline and another half-ellipse to get forward into the node again
+    One half-ellipse to turn backwards, a spline and another half-ellipse to get
+    forward into the node again
 
     Args:
         x_from_to: x coordinates of the two nodes
@@ -568,7 +569,7 @@ def get_sankey_diagram(dig: nx.DiGraph, draw_config=None) -> Diagram:
     for node in sorted_nodes:
         node_color_attribute_values = []
 
-        x, node_y, dy = get_node_position(dig, node)
+        _, node_y, _ = get_node_position(dig, node)
 
         sorted_successors = sorted(dig.successors(node), key=node_y_position)
         for n_next in sorted_successors:
