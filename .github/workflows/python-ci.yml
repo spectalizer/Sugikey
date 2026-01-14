@@ -42,11 +42,12 @@ jobs:
         run: |
           poetry run coverage run -m pytest
           poetry run coverage report -m
+          poetry run coverage html
       - name: Upload coverage report as artifact
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: .coverage
+          path: htmlcov/
         if: always()
 
   
