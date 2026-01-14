@@ -1,14 +1,14 @@
 """Draw (Sankey diagram or node link diagrams)"""
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Any, Optional, Union
 
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 
 
-def get_default_text_kwargs(label_category: str, library: str) -> Dict[str, Any]:
+def get_default_text_kwargs(label_category: str, library: str) -> dict[str, Any]:
     """Get default keyword arguments.
 
     Args:
@@ -60,16 +60,16 @@ class DrawConfig:
         0.1  # vertical distance between node center and node label, as a fraction of dy_node
     )
     library: str = "Matplotlib"
-    node_label_kwargs: Optional[Dict[str, Any]] = None
+    node_label_kwargs: Optional[dict[str, Any]] = None
     write_edge_values: bool = True
-    edge_label_kwargs: Optional[Dict[str, Any]] = None
+    edge_label_kwargs: Optional[dict[str, Any]] = None
     edge_label_format: str = "{}"
     dx_node: float = 0.2
     dx_arrow: float = 0.1
-    edge_edge_kw: Optional[Dict[str, Any]] = None
-    node_edge_kw: Optional[Dict[str, Any]] = None
-    edge_fill_kw: Optional[Dict[str, Any]] = None
-    node_fill_kw: Optional[Dict[str, Any]] = None
+    edge_edge_kw: Optional[dict[str, Any]] = None
+    node_edge_kw: Optional[dict[str, Any]] = None
+    edge_fill_kw: Optional[dict[str, Any]] = None
+    node_fill_kw: Optional[dict[str, Any]] = None
     debug_visuals: bool = False
     link_color_attribute: Optional[str] = None
 
@@ -167,8 +167,8 @@ def get_node_position(dig: nx.DiGraph, node: str) -> tuple:
 class Polyline:
     """A polyline or broken line"""
 
-    x_list: List[float]
-    y_list: List[float]
+    x_list: list[float]
+    y_list: list[float]
     name: str = ""
     color_attribute_value: Optional[str] = None
 
@@ -217,7 +217,7 @@ class Polyline:
         return x_center, y_center
 
 
-def concatenate_polylines(polylines: List[Polyline]) -> List[Polyline]:
+def concatenate_polylines(polylines: list[Polyline]) -> list[Polyline]:
     """Concatenate polylines, if their ends touch
 
     Args:
@@ -244,7 +244,7 @@ def concatenate_polylines(polylines: List[Polyline]) -> List[Polyline]:
     return new_plines
 
 
-def get_polygon(polylines: List[Polyline]) -> Polyline:
+def get_polygon(polylines: list[Polyline]) -> Polyline:
     """Concatenate polylines even if their ends do not touch (for filling)"""
     polygon = polylines[0]
     for pline in polylines[1:]:
@@ -272,10 +272,10 @@ class Diagram:
         labels: text labels
     """
 
-    lines: List[Polyline] = field(default_factory=lambda: [])
-    filled: List[Polyline] = field(default_factory=lambda: [])
-    labels: List[Label] = field(default_factory=lambda: [])
-    color_dict: Dict[str, str] = field(default_factory=lambda: {})
+    lines: list[Polyline] = field(default_factory=lambda: [])
+    filled: list[Polyline] = field(default_factory=lambda: [])
+    labels: list[Label] = field(default_factory=lambda: [])
+    color_dict: dict[str, str] = field(default_factory=lambda: {})
 
     @property
     def coordinate_range(self):
@@ -335,7 +335,7 @@ def in_arrow_coordinates(dig, node, draw_config):
 class NodeRepresentation:
     """Geometric representation of a node"""
 
-    polylines: List[Polyline]  # edges
+    polylines: list[Polyline]  # edges
     polygon: Optional[Polyline]  # filled
     label: Optional[Label]
     color_attribute_value: Optional[str] = None
@@ -407,7 +407,7 @@ def get_node_geometry(
 class LinkRepresentation:
     """Geometric representation of a link"""
 
-    polylines: List[Polyline]  # edges
+    polylines: list[Polyline]  # edges
     polygon: Polyline  # filled
     label: Optional[Label]
     value: float
@@ -436,11 +436,12 @@ def backward_link_curve(
     edge_val: float,
     below: bool,
     draw_config: Optional[DrawConfig] = None,
-) -> Tuple[np.ndarray, np.ndarray]:
+) -> tuple[np.ndarray, np.ndarray]:
     """
     Get geometry of backward link (as arises in the case of cycles)
 
-    One half-ellipse to turn backwards, a spline and another half-ellipse to get forward into the node again
+    One half-ellipse to turn backwards, a spline and another half-ellipse to get
+    forward into the node again
 
     Args:
         x_from_to: x coordinates of the two nodes
@@ -510,6 +511,8 @@ def get_link_geometry(
         )
         y_above = y_below + edge_val
         x_above = x_below
+    else:
+        raise ValueError(f"Unknown link geometry: {draw_config.link_geometry}")
 
     x_fill = np.concatenate([x_below, x_above[::-1]])
     y_fill = np.concatenate([y_below, y_above[::-1]])
@@ -566,7 +569,7 @@ def get_sankey_diagram(dig: nx.DiGraph, draw_config=None) -> Diagram:
     for node in sorted_nodes:
         node_color_attribute_values = []
 
-        x, node_y, dy = get_node_position(dig, node)
+        _, node_y, _ = get_node_position(dig, node)
 
         sorted_successors = sorted(dig.successors(node), key=node_y_position)
         for n_next in sorted_successors:
@@ -685,7 +688,7 @@ def draw_sankey(dig, ax=None, draw_config=None):
 
 def draw_edges(
     dig: nx.DiGraph,
-    pos: Dict[Any, Tuple[float, float]],
+    pos: dict[Any, tuple[float, float]],
     ax=None,
     plot_kwargs=None,
     draw_config: Optional[DrawConfig] = None,
