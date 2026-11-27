@@ -10,7 +10,7 @@ Key characteristics:
 - Accepts pandas DataFrames or NetworkX directed graphs as input
 - Uses NetworkX for graph processing
 - Outputs static visualizations with Matplotlib (primary) or Bokeh (interactive)
-- Requires Python >= 3.10
+- Requires Python >= 3.11
 - Uses Poetry for dependency management
 
 ## Development Commands
