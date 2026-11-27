@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.5.1 (2026-11-27)
+
+### Bug Fixes
+
+- Some ruffing
+  ([`3c437d1`](https://github.com/spectalizer/Sugikey/commit/3c437d17b00822b27651181029cacc08bdb59c92))
+
+
 ## v0.5.0 (2026-01-12)
 
 ### Features
