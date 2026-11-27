@@ -1,7 +1,7 @@
 """Draw (Sankey diagram or node link diagrams)"""
 
 from dataclasses import dataclass, field
-from typing import Any, Optional, Union
+from typing import Any
 
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -21,7 +21,7 @@ def get_default_text_kwargs(label_category: str, library: str) -> dict[str, Any]
         A dictionary with the default keyword argument, e.g. {"fontsize": 10}.
     """
     if label_category == "node_label":
-        font_size: Union[int, str] = 10
+        font_size: int | str = 10
     elif label_category == "edge_label":
         font_size = 8
     else:
@@ -60,18 +60,18 @@ class DrawConfig:
         0.1  # vertical distance between node center and node label, as a fraction of dy_node
     )
     library: str = "Matplotlib"
-    node_label_kwargs: Optional[dict[str, Any]] = None
+    node_label_kwargs: dict[str, Any] | None = None
     write_edge_values: bool = True
-    edge_label_kwargs: Optional[dict[str, Any]] = None
+    edge_label_kwargs: dict[str, Any] | None = None
     edge_label_format: str = "{}"
     dx_node: float = 0.2
     dx_arrow: float = 0.1
-    edge_edge_kw: Optional[dict[str, Any]] = None
-    node_edge_kw: Optional[dict[str, Any]] = None
-    edge_fill_kw: Optional[dict[str, Any]] = None
-    node_fill_kw: Optional[dict[str, Any]] = None
+    edge_edge_kw: dict[str, Any] | None = None
+    node_edge_kw: dict[str, Any] | None = None
+    edge_fill_kw: dict[str, Any] | None = None
+    node_fill_kw: dict[str, Any] | None = None
     debug_visuals: bool = False
-    link_color_attribute: Optional[str] = None
+    link_color_attribute: str | None = None
 
     def __post_init__(self):
         """Default kwargs in post-init"""
@@ -118,8 +118,8 @@ def plot_node_positions(dig: nx.DiGraph, pos_var="y"):
 
 
 def cubic_spline_link(
-    x_from_to: Optional[np.ndarray] = None,
-    y_from_to: Optional[np.ndarray] = None,
+    x_from_to: np.ndarray | None = None,
+    y_from_to: np.ndarray | None = None,
     n_segments: int = 100,
 ):
     """Draw a (horizontally oriented) cubic spline with 0 slope from a point to another point
@@ -170,7 +170,7 @@ class Polyline:
     x_list: list[float]
     y_list: list[float]
     name: str = ""
-    color_attribute_value: Optional[str] = None
+    color_attribute_value: str | None = None
 
     @property
     def n_points(self):
@@ -272,10 +272,10 @@ class Diagram:
         labels: text labels
     """
 
-    lines: list[Polyline] = field(default_factory=lambda: [])
-    filled: list[Polyline] = field(default_factory=lambda: [])
-    labels: list[Label] = field(default_factory=lambda: [])
-    color_dict: dict[str, str] = field(default_factory=lambda: {})
+    lines: list[Polyline] = field(default_factory=list)
+    filled: list[Polyline] = field(default_factory=list)
+    labels: list[Label] = field(default_factory=list)
+    color_dict: dict[str, str] = field(default_factory=dict)
 
     @property
     def coordinate_range(self):
@@ -336,9 +336,9 @@ class NodeRepresentation:
     """Geometric representation of a node"""
 
     polylines: list[Polyline]  # edges
-    polygon: Optional[Polyline]  # filled
-    label: Optional[Label]
-    color_attribute_value: Optional[str] = None
+    polygon: Polyline | None  # filled
+    label: Label | None
+    color_attribute_value: str | None = None
 
     def __post_init__(self):
         col_attr_val = self.color_attribute_value
@@ -409,9 +409,9 @@ class LinkRepresentation:
 
     polylines: list[Polyline]  # edges
     polygon: Polyline  # filled
-    label: Optional[Label]
+    label: Label | None
     value: float
-    color_attribute_value: Optional[str] = None
+    color_attribute_value: str | None = None
 
     def __post_init__(self):
         col_attr_val = self.color_attribute_value
@@ -435,7 +435,7 @@ def backward_link_curve(
     y_from_to,
     edge_val: float,
     below: bool,
-    draw_config: Optional[DrawConfig] = None,
+    draw_config: DrawConfig | None = None,
 ) -> tuple[np.ndarray, np.ndarray]:
     """
     Get geometry of backward link (as arises in the case of cycles)
@@ -691,7 +691,7 @@ def draw_edges(
     pos: dict[Any, tuple[float, float]],
     ax=None,
     plot_kwargs=None,
-    draw_config: Optional[DrawConfig] = None,
+    draw_config: DrawConfig | None = None,
     x_node_width: float = 0.0,
 ):
     """Draw edges of a directed graph, by default using cubic splines"""

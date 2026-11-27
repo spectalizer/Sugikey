@@ -1,6 +1,6 @@
 """Layered graph layouts with thin edges, as a byproduct of the Sugiyama method"""
 
-from typing import Any, Dict, Optional, Tuple
+from typing import Any
 
 import networkx as nx
 
@@ -8,8 +8,8 @@ from . import processing
 
 
 def get_layered_graph_layout(
-    dig: nx.DiGraph, layout_config: Optional[processing.LayoutConfig] = None
-) -> Dict[Any, Tuple[float, float]]:
+    dig: nx.DiGraph, layout_config: processing.LayoutConfig | None = None
+) -> dict[Any, tuple[float, float]]:
     """Get layered graph layout for a directed graph"""
     dig = dig.copy()
     for edge in dig.edges:

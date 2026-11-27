@@ -4,7 +4,6 @@ Optimization of the vertical position of each node formulated as a linear proble
 """
 
 import itertools
-from typing import Dict
 
 import networkx as nx
 import pulp
@@ -40,7 +39,7 @@ def var_name(node_name: str) -> str:
 
 
 def add_bendiness_objective(
-    prob: pulp.LpProblem, dig: nx.DiGraph, node_pos_dict: Dict[str, float]
+    prob: pulp.LpProblem, dig: nx.DiGraph, node_pos_dict: dict[str, float]
 ):
     """Add bendiness to the objective function
 
@@ -71,7 +70,7 @@ def add_bendiness_objective(
 
 
 def add_distance_to_center(
-    prob: pulp.LpProblem, node_pos_dict: Dict[str, float], node: str
+    prob: pulp.LpProblem, node_pos_dict: dict[str, float], node: str
 ):
     """Add a variable corresponding to the absolute distance to 0
 

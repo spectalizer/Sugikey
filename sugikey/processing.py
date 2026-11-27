@@ -2,7 +2,6 @@
 
 import itertools
 from dataclasses import dataclass
-from typing import Optional
 
 import networkx as nx
 import numpy as np
@@ -156,7 +155,7 @@ def calculate_node_values(dig: nx.DiGraph, max_imbalance=0.05):
             )
 
 
-def assign_layers(dig: nx.DiGraph, method: Optional[LayoutConfig] = None):
+def assign_layers(dig: nx.DiGraph, method: LayoutConfig | None = None):
     """Assign nodes to layers by length of longest directed path from each node
 
     This is done recursively.
@@ -224,7 +223,7 @@ def get_layers(dig) -> list:
     return sorted(list(layer_set))
 
 
-def get_layer_nodes(dig: nx.DiGraph, lay: str, key_name: Optional[str] = None):
+def get_layer_nodes(dig: nx.DiGraph, lay: str, key_name: str | None = None):
     """Get nodes of layer
 
     Args:
@@ -395,7 +394,6 @@ def apply_barycenter_crossing_reduction_heuristic(
         from_the_left: a boolean, True if position in a layer is changed on the basis of previous layer (left layer).
             If so, we start from the leftmost layer
     """
-    #
     layers = get_layers(dig)
     if verbose:
         if from_the_left:
@@ -538,7 +536,7 @@ def assign_absolute_vertical_position(dig: nx.DiGraph) -> None:
 
 
 def process_directed_graph(
-    dig: nx.DiGraph, layout_config: Optional[LayoutConfig] = None
+    dig: nx.DiGraph, layout_config: LayoutConfig | None = None
 ):
     """Process directed graph to prepare Sankey diagram
 

@@ -3,7 +3,7 @@
 Bokeh allows interactions to be included in plots: zooming, panning, showing things on hover etc.
 """
 
-from typing import Any, Dict, Optional
+from typing import Any
 
 import networkx as nx
 import pandas as pd
@@ -13,7 +13,7 @@ from bokeh.plotting import figure
 from . import draw
 
 
-def get_bokeh_kwargs(pyplot_kwargs: Dict[str, Any]) -> dict:
+def get_bokeh_kwargs(pyplot_kwargs: dict[str, Any]) -> dict:
     """Translate pyplot keyword arguments in bokeh keyword arguments
 
     Args:
@@ -30,7 +30,7 @@ def get_bokeh_kwargs(pyplot_kwargs: Dict[str, Any]) -> dict:
     return bk_kwargs
 
 
-def draw_sankey_bokeh(dig: nx.DiGraph, draw_config: Optional[draw.DrawConfig] = None):
+def draw_sankey_bokeh(dig: nx.DiGraph, draw_config: draw.DrawConfig | None = None):
     """The actual drawing of a Sankey plot in bokeh
 
     Args:

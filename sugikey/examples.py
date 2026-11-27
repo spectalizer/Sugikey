@@ -1,7 +1,6 @@
 """Example data to test and showcase the package"""
 
 import copy
-from typing import Dict
 
 import networkx as nx
 import pandas as pd

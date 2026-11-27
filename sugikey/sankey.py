@@ -1,20 +1,18 @@
 """High-level functions for Sankey diagrams in one or few lines of code"""
 
-from typing import Optional
 
 import matplotlib
 import networkx as nx
 import pandas as pd
 
-from . import processing
-from . import draw
+from . import draw, processing
 
 
 def sankey_from_dig(
     dig: nx.DiGraph,
-    layout_config: Optional[processing.LayoutConfig] = None,
-    ax: Optional[matplotlib.axes.Axes] = None,
-    draw_config: Optional[draw.DrawConfig] = None,
+    layout_config: processing.LayoutConfig | None = None,
+    ax: matplotlib.axes.Axes | None = None,
+    draw_config: draw.DrawConfig | None = None,
 ):
     """Plot Sankey diagram from directed graph
 
@@ -33,9 +31,9 @@ def sankey_from_dig(
 
 def sankey_from_df(
     flow_df: pd.DataFrame,
-    layout_config: Optional[processing.LayoutConfig] = None,
-    ax: Optional[matplotlib.axes.Axes] = None,
-    draw_config: Optional[draw.DrawConfig] = None,
+    layout_config: processing.LayoutConfig | None = None,
+    ax: matplotlib.axes.Axes | None = None,
+    draw_config: draw.DrawConfig | None = None,
 ):
     """Plot Sankey diagram from dataframe
 
