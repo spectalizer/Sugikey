@@ -39,8 +39,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.semantic_release]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 branch = "main"
-upload_to_repository = true
-hvcs = "gitlab"
+hvcs = "github"
 build_command = "pip install poetry && poetry build"
 
 [tool.mypy]
